@@ -1,14 +1,27 @@
-# Copyright 2023 user
-# 
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-# 
-#     http://www.apache.org/licenses/LICENSE-2.0
-# 
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+#!/usr/bin/env python3
+"""
+Basic ditionary
+"""
 
+
+BaseCaching = __import__('base_caching').BaseCaching
+
+
+class BasicCache(BaseCaching):
+    """
+    Basic Cache class that inherits from BaseCaching
+    """
+
+    def put(self, key, item):
+        """
+        Must assign to the dictionary self.cache_data
+        the item value for the key key.
+        """
+        if key and item:
+            self.cache_data[key] = item
+
+    def get(self, key):
+        """
+        Must return the value in self.cache_data linked to key.
+        """
+        return self.cache_data.get(key, None)

@@ -5,6 +5,7 @@ Basic Flask app
 """
 
 from flask import Flask, render_template, request, g
+from flask_babel import gettext as _
 from flask_babel import Babel
 import pytz
 from pytz.exceptions import UnknownTimeZoneError
@@ -50,7 +51,7 @@ def before_request():
     g.user = get_user(request.args.get("login_as"))
 
 
-@babel.localeselector
+
 def get_locale():
     """
     get_locale.
@@ -69,7 +70,7 @@ def get_locale():
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
-@babel.timezoneselector
+
 def get_timezone():
     """
     get_timezone.
